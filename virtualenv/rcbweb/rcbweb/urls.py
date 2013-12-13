@@ -3,6 +3,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
 from rcbweb.views import index
+from rcbweb.views import login
+from rcbweb.views import worker
 
 admin.autodiscover()
 
@@ -12,7 +14,9 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^rcb/([A-Za-z0-9]*)[/]?$', index),
+    url(r'^rcb/$', index),
+    url(r'^rcb/demo/$', login),
+    url(r'^rcb/demo/([A-Za-z0-9]*)[/]?$', worker),
 )
 
 urlpatterns += staticfiles_urlpatterns()

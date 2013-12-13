@@ -63,11 +63,11 @@ DATABASES = {
 }
 
 TEMPLATE_DIRS = (
-    '/Users/harh/Codes/Python/icclab-web/rcbweb/rcbweb/templates',
+    '/Users/harh/Codes/Python/icclab-rcb-web/virtualenv/rcbweb/rcbweb/templates',
 )
 
 STATICFILES_DIRS = ( 
-    '/Users/harh/Codes/Python/icclab-web/rcbweb/rcbweb/static/',  
+    '/Users/harh/Codes/Python/icclab-rcb-web/virtualenv/rcbweb/rcbweb/static/',  
 )
 
 # Internationalization
