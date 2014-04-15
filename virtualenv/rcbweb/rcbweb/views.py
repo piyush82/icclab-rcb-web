@@ -7,6 +7,8 @@
 ############################################################
 
 from django.shortcuts import render
+from rcbweb.models import LoginForm
+
 import datetime
 
 def index(request):
@@ -22,7 +24,11 @@ def index(request):
 
 def login(request):
     data = {}
-    return render(request, 'base.html', {'data':data})
+    form = LoginForm()
+    data['content'] = form.as_table()
+    #data['content'] = form.as_p()
+    #data['content'] = form.as_ul()
+    return render(request, 'gatekeeper.html', {'data':data})
 
 def worker(request, options):
     data = {}
