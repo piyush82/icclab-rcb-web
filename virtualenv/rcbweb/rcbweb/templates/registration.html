@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{ data.title|default:'ICCLab RCB Demo Site' }}
+{% endblock %}
+
+{% block my_content %}
+
+<div class="content2">
+Please provide all the details requested below, all fields are mandatory.<br><br>
+
+<form method="post" action="../demo/worker/doregister" style='background:#F2F2F2;padding:10px;'>
+<table style="background:#F2F2F2;font-family:Verdana;text-align:left;">
+{{ data.content|default:'no value was found' }}
+<tr><td colspan="2" align="right"><input type="submit" value="register"></td></tr>
+</table>
+
+</form>
+</div>
+
+{% endblock %}
