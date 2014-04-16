@@ -8,6 +8,9 @@
 
 from django.shortcuts import render
 from rcbweb.models import LoginForm
+from rcbweb.models import RegistrationForm
+from django.http import HttpResponse
+from django.template import RequestContext
 
 import datetime
 
@@ -31,5 +34,31 @@ def login(request):
     return render(request, 'gatekeeper.html', {'data':data})
 
 def worker(request, options):
+    #print options
+    if options == 'register':
+        form = RegistrationForm()
+        form.fields['osuser'].label = "OpenStack Username"
+        form.fields['ospassword'].label = "OpenStack Password"
+        form.fields['ostenantname'].label = "OpenStack Tenant Name"
     data = {}
-    return render(request, 'base.html', {'data':data})
+    data['title'] = 'ICCLab RCB Engine: Registration'
+    data['content'] = form.as_table()
+    return render(request, 'registration.html', {'data':data})
+
+def doaction(request, options):
+#     print options
+    if options == 'doregistration':
+        if request.method == 'POST':
+            formData =  request.POST.dict()
+            isValid, errorList = validate(formData, "registration")
+            if isValid:
+                print 'Valid Form data received'
+            else:
+                print 'Something fishy is going on'
+    data = {}
+    return render(request, 'status.html', {'data':data})
+
+def validate(values, validationType):
+    status = False
+    fList = []
+    return status, fList

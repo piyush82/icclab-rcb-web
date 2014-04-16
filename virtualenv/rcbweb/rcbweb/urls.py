@@ -5,6 +5,7 @@ from django.contrib import admin
 from rcbweb.views import index
 from rcbweb.views import login
 from rcbweb.views import worker
+from rcbweb.views import doaction
 
 admin.autodiscover()
 
@@ -17,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^rcb/$', index),
     url(r'^rcb/demo/$', login),
     url(r'^rcb/demo/([A-Za-z0-9]*)[/]?$', worker),
+    url(r'^rcb/demo/action/([A-Za-z0-9]*)[/]?$', doaction),
 )
 
 urlpatterns += staticfiles_urlpatterns()

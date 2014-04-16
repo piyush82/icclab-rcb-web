@@ -10,9 +10,13 @@
 If you already have an account, then please login.<br><br>
 
 <form method="post" action="../worker/dologin" style='background:#F2F2F2;padding:10px;'>
+<table>
 {{ data.content|default:'no value was found' }}
-<input type="submit" value="login">
-</form>
+<tr><td colspan="2" align="right"><input type="submit" value="login"></td></tr>
+</table>
+</form><br>
+
+If you don't have an account, please use the <a href="register">link</a> to create an account.
 </div>
 
 {% endblock %}
