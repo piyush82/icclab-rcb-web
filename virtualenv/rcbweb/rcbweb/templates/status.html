@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{ data.title|default:'ICCLab RCB Demo Site' }}
+{% endblock %}
+
+{% block my_content %}
+
+<div class="content2">
+
+{% if data.status == 'true' and data.operation == 'registration' %}
+<p style="color:green;">
+The last action was completed successfully. Your account will be looked into by a system administrator promptly. 
+Depending on your data, proper credentials will be granted. Once your account is activated, you will receive an email from us.
+</p>
+<a href={{ data.redirection|default:'/' }}>Continue</a>
+{% endif %}
+
+{% if data.status == 'false' and data.operation == 'registration' %}
+<p style="color:red;">
+The registration form data validation failed. Please check the data you provided and try again.
+</p>
+<a href={{ data.redirection|default:'/' }}>Go Back</a>
+{% endif %}
+
+</div>
+
+{% endblock %}
